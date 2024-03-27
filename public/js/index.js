@@ -27,4 +27,8 @@ $(function () {
   $("#btn_limpiar").on("click", function () {
     elementoInput.val("");
   });
+
+  $("#btn_volver_al_inicio").on("click", function () {
+    window.location.href = "/";
+  });
 });

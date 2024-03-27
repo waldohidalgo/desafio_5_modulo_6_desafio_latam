@@ -38,6 +38,11 @@ button[type="submit"] {
   margin-inline: auto;
 }
 
+#btn_volver_al_inicio {
+  display: block;
+  margin-inline: auto;
+}
+
 /*
 Estilos Loader
 */
