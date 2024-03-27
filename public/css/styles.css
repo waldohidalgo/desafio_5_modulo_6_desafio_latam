@@ -1,0 +1,71 @@
+body {
+  background-color: #eee;
+}
+
+#formulario_ingresa_imagen {
+  max-width: 500px;
+  margin-inline: auto;
+}
+#url {
+  cursor: pointer;
+}
+h1,
+h2,
+h3 {
+  text-align: center;
+  font-family: "Merriweather", serif;
+  font-weight: 700;
+}
+
+button[type="submit"] {
+  margin-inline: auto;
+  display: block;
+}
+
+.imagen_formateada_contenedor img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  margin-inline: auto;
+}
+.error_500_message {
+  word-break: break-all;
+  text-align: center;
+}
+
+#btn_limpiar {
+  display: block;
+  margin-inline: auto;
+}
+
+/*
+Estilos Loader
+*/
+/* HTML: <div class="loader"></div> */
+.loader {
+  display: none;
+  margin-inline: auto;
+  width: fit-content;
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 30px;
+  color: #0000;
+  background: linear-gradient(
+      90deg,
+      #000 calc(50% - 0.5ch),
+      #c02942 0 calc(50% + 0.5ch),
+      #000 0
+    )
+    right/calc(200% + 1ch) 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: l8 2s infinite steps(11);
+}
+.loader:before {
+  content: "Loading...";
+}
+@keyframes l8 {
+  to {
+    background-position: left;
+  }
+}

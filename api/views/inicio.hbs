@@ -1,0 +1,40 @@
+<header class="my-5">
+  <h1>
+    <span class="text-decoration-underline"> Desafío Black and White</span>📷
+  </h1>
+</header>
+
+<section class="container my-5">
+  <h3>👇Ingresa la URL de una imagen </h3>
+  <form
+    action="http://localhost:3000/procesa_imagen"
+    id="formulario_ingresa_imagen"
+  >
+    <div class="input-group my-4">
+      <label
+        class="input-group-text bg-success text-light"
+        id="url"
+        for="input_url"
+        title="Ingresa la url de una imagen en el input"
+      >URL</label>
+      <input
+        name="imagen"
+        type="text"
+        class="form-control"
+        placeholder="Ingresa la url de una imagen"
+        aria-label="Ingresa la url de una imagen"
+        aria-describedby="url"
+        id="input_url"
+      />
+    </div>
+    <button id="btn_enviar_url" type="submit" class="btn btn-primary">Subir
+      Imagen al Servidor</button>
+    <button
+      type="button"
+      id="btn_limpiar"
+      class="btn btn-danger mt-3"
+      title="Limpiar el campo de URL"
+    >Limpiar</button>
+  </form>
+  <div class="loader" id="loader"></div>
+</section>

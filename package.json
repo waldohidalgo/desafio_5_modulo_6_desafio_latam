@@ -1,0 +1,22 @@
+{
+  "name": "desafio_black_and_white",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node api/index.js",
+    "dev": "node --watch api/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Waldo Hidalgo Oyarce",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2",
+    "jimp": "^0.22.12",
+    "jquery": "^3.7.1",
+    "uuid": "^9.0.1"
+  }
+}
