@@ -2,6 +2,7 @@ $(function () {
   const elementoInput = $("#input_url");
   const botonSubmit = $("#btn_enviar_url");
   const loader = $("#loader");
+
   $("#formulario_ingresa_imagen").on("submit", function (event) {
     event.preventDefault();
 
@@ -20,7 +21,22 @@ $(function () {
       botonSubmit.html("Servidor Ocupado.....");
       loader.show();
       $("#btn_limpiar").attr("disabled", true);
-      window.location.href = url;
+      fetch(url)
+        .then((response) => response.json())
+        .catch(function () {
+          window.location.href = "/muestra_imagen?imagen=error_url";
+        })
+        .then(function (data) {
+          if (data.error) {
+            window.location.href =
+              "/muestra_imagen?imagen=error_servidor&error=" + data.error;
+          } else {
+            window.location.href = "/muestra_imagen?imagen=" + data.imagen;
+            botonSubmit.attr("disabled", false);
+            botonSubmit.html("Subir Imagen al Servidor");
+            loader.hide();
+          }
+        });
     }
   });
 

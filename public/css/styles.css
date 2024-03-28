@@ -38,7 +38,8 @@ button[type="submit"] {
   margin-inline: auto;
 }
 
-#btn_volver_al_inicio {
+#btn_volver_al_inicio,
+#btn_resetear_formulario {
   display: block;
   margin-inline: auto;
 }

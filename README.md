@@ -131,6 +131,7 @@ async function procesaImagen(req, res) {
     try {
       const imagenJimp = await Jimp.read(imagenURL);
       const nombreImagen = `img${generarID()}.jpg`;
+
       const rutaImagenServer = path.join(
         __dirname,
         "..",
@@ -142,16 +143,35 @@ async function procesaImagen(req, res) {
         .grayscale()
         .writeAsync(rutaImagenServer);
 
-      res.status(200).render("imagen_formateada", {
-        imagen: `./images/${nombreImagen}`,
-      });
+      res.status(200).json({ imagen: nombreImagen });
     } catch (err) {
-      res.status(500).render("error_servidor", { error: err.message });
+      res.status(500).json({ error: err.message });
     }
   } else {
-    res.status(400).render("url_invalida");
+    res.status(400).send("URL inválida");
   }
 }
+```
+
+En el lado del cliente manipulo las respuestas enviadas por el servidor:
+
+```js
+fetch(url)
+  .then((response) => response.json())
+  .catch(function () {
+    window.location.href = "/muestra_imagen?imagen=error_url";
+  })
+  .then(function (data) {
+    if (data.error) {
+      window.location.href =
+        "/muestra_imagen?imagen=error_servidor&error=" + data.error;
+    } else {
+      window.location.href = "/muestra_imagen?imagen=" + data.imagen;
+      botonSubmit.attr("disabled", false);
+      botonSubmit.html("Subir Imagen al Servidor");
+      loader.hide();
+    }
+  });
 ```
 
 ### 4.La imagen alterada debe ser almacenada con un nombre incluya una porción de un UUID y con extensión “jpg”, por ejemplo: 3dcb6d.jpeg. (2 Puntos)

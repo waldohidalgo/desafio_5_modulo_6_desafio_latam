@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const path = require("path");
 
-const { procesaImagen } = require("./functions");
+const { procesaImagen, muestraImagen } = require("./functions");
 router.use(
   "/bootstrap_css",
   express.static(
@@ -27,5 +27,10 @@ router.get("/", (req, res) => {
 });
 
 router.get("/procesa_imagen", procesaImagen);
+router.get("/muestra_imagen", muestraImagen);
+
+router.get("/*", (req, res) => {
+  res.render("url_invalida");
+});
 
 module.exports = router;
